@@ -1,0 +1,325 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+@custom-variant beige (&:is(.beige *));
+
+/* ---------------------------------------------------------------------------
+   Design system — one token set, three themes (default / dark / beige).
+   Typography is deliberately modern: Sora for display, Plus Jakarta Sans for
+   UI, IBM Plex Sans Arabic for a clean RTL experience.
+   --------------------------------------------------------------------------- */
+:root {
+  --radius: 1rem;
+
+  --font-body: 'Plus Jakarta Sans', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --font-heading: 'Sora', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+
+  --background: #f6f7f9;
+  --foreground: #101319;
+  --card: #ffffff;
+  --card-foreground: #101319;
+  --popover: #ffffff;
+  --popover-foreground: #101319;
+  --primary: #ff4d1c;
+  --primary-foreground: #ffffff;
+  --secondary: #eef0f5;
+  --secondary-foreground: #1a1d24;
+  --muted: #f0f2f6;
+  --muted-foreground: #6b7280;
+  --accent: #fff0e9;
+  --accent-foreground: #c93c10;
+  --destructive: #e5484d;
+  --border: #e5e8ef;
+  --input: #e5e8ef;
+  --ring: #ff4d1c;
+
+  --header: rgba(255, 255, 255, 0.78);
+  --footer: #ffffff;
+  --code-bg: #0d1117;
+  --code-text: #f8f8f2;
+
+  --surface: #ffffff;
+  --surface-soft: rgba(255, 255, 255, 0.66);
+  --glass: rgba(255, 255, 255, 0.72);
+  --shadow-soft: 0 24px 70px -32px rgba(16, 19, 25, 0.28);
+  --shadow-glow: 0 18px 50px -22px rgba(255, 77, 28, 0.55);
+  --grid-line: rgba(16, 19, 25, 0.035);
+
+  --chart-1: #ff4d1c;
+  --chart-2: #ff9a5a;
+  --chart-3: #9aa3b2;
+  --chart-4: #6c5ce7;
+  --chart-5: #00b894;
+}
+
+.dark {
+  --background: #0a0c12;
+  --foreground: #e9ecf3;
+  --card: #11151d;
+  --card-foreground: #e9ecf3;
+  --popover: #151a24;
+  --popover-foreground: #e9ecf3;
+  --primary: #ff7a45;
+  --primary-foreground: #1a0d06;
+  --secondary: #1c212c;
+  --secondary-foreground: #e9ecf3;
+  --muted: #171c25;
+  --muted-foreground: #98a1b2;
+  --accent: #2b1d17;
+  --accent-foreground: #ff9a5a;
+  --destructive: #ef4444;
+  --border: #242b38;
+  --input: #242b38;
+  --ring: #ff7a45;
+
+  --header: rgba(10, 12, 18, 0.78);
+  --footer: #0d1017;
+  --code-bg: #080a0e;
+  --code-text: #f8f8f2;
+
+  --surface: #11151d;
+  --surface-soft: rgba(17, 21, 29, 0.7);
+  --glass: rgba(17, 21, 29, 0.72);
+  --shadow-soft: 0 30px 80px -34px rgba(0, 0, 0, 0.85);
+  --shadow-glow: 0 20px 60px -24px rgba(255, 122, 69, 0.45);
+  --grid-line: rgba(255, 255, 255, 0.035);
+
+  --chart-1: #ff7a45;
+  --chart-2: #ffb37c;
+  --chart-3: #697386;
+  --chart-4: #8b7cf6;
+  --chart-5: #2dd4a7;
+}
+
+.beige {
+  --background: #f3ede3;
+  --foreground: #34291f;
+  --card: #fbf7f0;
+  --card-foreground: #34291f;
+  --popover: #fbf7f0;
+  --popover-foreground: #34291f;
+  --primary: #d95f2a;
+  --primary-foreground: #fffaf4;
+  --secondary: #e8dfd0;
+  --secondary-foreground: #4a3d34;
+  --muted: #ece4d7;
+  --muted-foreground: #8a7a6b;
+  --accent: #f2e3cd;
+  --accent-foreground: #a34a1c;
+  --destructive: #c0392b;
+  --border: #ddd2c1;
+  --input: #ddd2c1;
+  --ring: #d95f2a;
+
+  --header: rgba(251, 247, 240, 0.8);
+  --footer: #f0eae0;
+  --code-bg: #2d2d2d;
+  --code-text: #f8f8f2;
+
+  --surface: #fbf7f0;
+  --surface-soft: rgba(251, 247, 240, 0.7);
+  --glass: rgba(251, 247, 240, 0.76);
+  --shadow-soft: 0 26px 70px -34px rgba(84, 63, 40, 0.35);
+  --shadow-glow: 0 18px 50px -24px rgba(217, 95, 42, 0.45);
+  --grid-line: rgba(52, 41, 31, 0.045);
+
+  --chart-1: #d95f2a;
+  --chart-2: #e89a5d;
+  --chart-3: #a99b87;
+  --chart-4: #8a6fd1;
+  --chart-5: #2f9e78;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-header: var(--header);
+  --color-footer: var(--footer);
+  --color-code-bg: var(--code-bg);
+  --color-code-text: var(--code-text);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 3px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 14px);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+    outline-color: color-mix(in oklab, var(--ring) 45%, transparent);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: center top;
+    color: var(--foreground);
+    font-family: var(--font-body);
+    font-feature-settings: 'cv11', 'ss01';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    min-height: 100vh;
+    transition: background-color 0.35s ease, color 0.35s ease;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.035em;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 24%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Design utilities — used across shadcn/ui surfaces and Magic UI effects.
+   --------------------------------------------------------------------------- */
+@keyframes aurora {
+  0% { transform: translate(-8%, -12%) rotate(0deg) scale(1); }
+  50% { transform: translate(10%, 8%) rotate(180deg) scale(1.18); }
+  100% { transform: translate(-8%, -12%) rotate(360deg) scale(1); }
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes beam {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+@utility aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.28;
+  animation: aurora 22s linear infinite;
+  pointer-events: none;
+}
+
+@utility text-gradient {
+  background: linear-gradient(115deg, var(--primary) 5%, var(--chart-2) 48%, var(--primary) 95%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-x 9s ease infinite;
+}
+
+@utility glass-panel {
+  background: var(--glass);
+  border: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  box-shadow: var(--shadow-soft);
+}
+
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility card-premium {
+  background: var(--surface);
+  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+@utility card-premium-hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in oklab, var(--primary) 42%, var(--border));
+  box-shadow: var(--shadow-glow);
+}
+
+@utility grid-fade {
+  -webkit-mask-image: linear-gradient(to bottom, black 35%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 35%, transparent 100%);
+}
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--secondary-foreground) 22%, transparent) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--secondary-foreground) 22%, transparent);
+  border-radius: 9999px;
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+
+@utility animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}

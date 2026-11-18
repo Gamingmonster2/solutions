@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "solutions-ai-worker",
+  "main": "index.js",
+  "compatibility_date": "2026-11-18",
+  "ai": {
+    "binding": "AI"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "QUOTA",
+      "id": "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "solutions_auth",
+      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+    }
+  ],
+  "vars": {
+    "ALLOWED_ORIGINS": "solutions.com.ly,chat.com.ly,browser.com.ly,com.net.ly,bot.com.ly",
+    "PAY_RECEIVE_ADDRESS": "0xc6240d79d9341d6e585ca1ddb9b121c8c8a130d4",
+    "POLYGON_RPC_URL": "https://polygon-bor-rpc.publicnode.com,https://polygon-rpc.com",
+    "PAY_CONFIRMATIONS": "64",
+    "PAY_SCAN_BLOCKS": "2000"
+  },
+  "triggers": {
+    "crons": ["*/3 * * * *"]
+  }
+}

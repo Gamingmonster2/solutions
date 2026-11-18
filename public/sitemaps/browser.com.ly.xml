@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://browser.com.ly/</loc>
+    <title>Solutions Browser — Premium AI Workspace</title>
+    <description>Explore Wikipedia and the Internet Archive with AI summaries — no API key needed.</description>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://browser.com.ly/chat</loc>
+    <title>AI Chat | Solutions Browser</title>
+    <description>Chat with AI in English or Arabic, with sessions, Markdown and voice support.</description>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://browser.com.ly/browser</loc>
+    <title>AI Browser | Solutions Browser</title>
+    <description>Search Wikipedia and the Internet Archive, then summarize sources with AI.</description>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://browser.com.ly/code</loc>
+    <title>Code Generator | Solutions Browser</title>
+    <description>Enhance your idea, generate code, preview it live, copy and edit it.</description>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://browser.com.ly/bot</loc>
+    <title>AI Website Builder | Solutions Browser</title>
+    <description>Build responsive websites from a prompt with image injection and live preview.</description>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://browser.com.ly/guide</loc>
+    <title>Models &amp; Fair Use | Solutions Browser</title>
+    <description>Understand the free lane, BYOK keys, quotas and fair-use rules.</description>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://browser.com.ly/plans</loc>
+    <title>Free Plan &amp; BYOK | Solutions Browser</title>
+    <description>Compare the shared free pool with bring-your-own-key plans.</description>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://browser.com.ly/providers</loc>
+    <title>AI Provider Policies | Solutions Browser</title>
+    <description>How Cloudflare, Groq, OpenRouter and other providers handle prompts and training.</description>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://browser.com.ly/privacy</loc>
+    <title>Privacy | Solutions Browser</title>
+    <description>Keys stay in your browser; shared requests run without data training.</description>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://browser.com.ly/faq</loc>
+    <title>API Key FAQ | Solutions Browser</title>
+    <description>Step-by-step Groq and OpenRouter key setup in English and Arabic.</description>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://browser.com.ly/about</loc>
+    <title>About | Solutions Browser</title>
+    <description>One premium AI platform serving five dedicated domains.</description>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

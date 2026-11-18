@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Sitemap: https://solutions.com.ly/sitemap.xml
+Sitemap: https://chat.com.ly/sitemap.xml
+Sitemap: https://browser.com.ly/sitemap.xml
+Sitemap: https://com.net.ly/sitemap.xml
+Sitemap: https://bot.com.ly/sitemap.xml
