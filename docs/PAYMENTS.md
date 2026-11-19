@@ -248,9 +248,24 @@ CREATE TABLE IF NOT EXISTS refunds (
 - بعد ضبط الرصيد المدفوع إلى 0، عاد `/ai` إلى الحصة المجانية وزادها `2 → 3`.
 - `npm run lint` و`npm run build` نظيفان بعد التغييرات.
 
+### حالة النشر الإنتاجي (2026-11-19)
+
+| العنصر | الحالة |
+|---|---|
+| حساب Cloudflare | `a9509f6a5546f386be2fd780ba517efb` (`safealigoog@gmail.com`) |
+| KV `SOLUTIONS_QUOTA` (binding `QUOTA`) | `3796c6a663b94fbda67f3069c6c0fb69` |
+| D1 `solutions_auth` (binding `DB`, WEUR) | `a6e8367d-1521-474d-9eb4-a84691820958` |
+| Remote schema | مطبّق: 13 استعلام / 8 جداول |
+| Worker | `https://solutions-ai-worker.safealigoog.workers.dev` — الإصدار `019cb0af-1dcb-4225-9281-8f60db5f52f2` |
+| Cron | `*/3 * * * *` مُفعّل |
+
+اختبار دخان على الإنتاج (كلها نجحت): `GET /pay/plans` → 200؛ `POST /auth/register` → 201؛ `GET /auth/me` بالتوكن/بدونه → 200/401؛ تسجيل دخول بكلمة خاطئة → 401؛ `POST /auth/login` → 200؛ `GET /account/plan` → 200؛ `POST /pay/invoice` → 201؛ `GET /pay/status` → 200 (`pending`)؛ `POST /auth/logout` → 200؛ `GET /auth/me` بعد الخروج → 401؛ `GET /robots.txt` و`GET /sitemap.xml` → 200 بمحتوى حسب النطاق. حُذفت حسابات الاختبار وقاعدة D1 الإنتاجية فارغة.
+
+`PAY_ADMIN_TOKEN` غير مضبوط بعد (مسار `/pay/scan` اليدوي مخفي 404)؛ الـ cron يكفي للتشغيل العادي. إن أُضيف، يُضاف كـ secret فقط: `npx wrangler secret put PAY_ADMIN_TOKEN --config worker/wrangler.jsonc`.
+
 ### ما لم يتحقق بعد
 
-- لم تُستقبل أموال حقيقية؛ الاختبار كان بمحاكاة حدث على قاعدة محلية.
+- لم تُستقبل أموال حقيقية؛ الاختبار كان بمحاكاة حدث على قاعدة محلية، والدخان الإنتاجي اختبر المسارات فقط دون تحويل فعلي.
 - المعالجة القانونية/الضريبية لتلقي USDC في ليبيا ما زالت مفتوحة (§10). لا يوجد KYC/AML في هذا المسار لأنه تحويل مباشر من محفظة المستخدم إلى محفظة المالك، وليس عبر CASP.
 - بطاقات Visa/Mastercard ما زالت محجوبة في ليبيا (§10)؛ لم يُنشر أي سعر بطاقة.
 - تحويل الاعتمادات إلى اشتراكات، واسترداد مدفوعات USDC، وسياسة «الدفع المتأخر» تحتاج قرار تجاري منفصل.

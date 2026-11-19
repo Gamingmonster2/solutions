@@ -9,14 +9,14 @@
   "kv_namespaces": [
     {
       "binding": "QUOTA",
-      "id": "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+      "id": "3796c6a663b94fbda67f3069c6c0fb69"
     }
   ],
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "solutions_auth",
-      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+      "database_id": "a6e8367d-1521-474d-9eb4-a84691820958"
     }
   ],
   "vars": {

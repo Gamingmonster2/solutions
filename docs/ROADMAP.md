@@ -1,6 +1,6 @@
 # Roadmap: auth, tiers & monetization
 
-Status: **auth implemented (D1 + Workers)**; **direct USDC/Polygon checkout implemented and locally tested**. Card rail still blocked/planned.
+Status: **auth implemented (D1 + Workers)**; **direct USDC/Polygon checkout implemented, locally tested and deployed to the production Worker** (2026-11-19, smoke tests passing). Card rail still blocked/planned; frontend Pages deploy + five domains still pending.
 
 ## 1. Auth tiers (implemented — first layer)
 
@@ -39,7 +39,7 @@ Remaining blockers (card rail / production):
 1. ~~Confirm processor availability/eligibility for Libya.~~ **Checked 2026-11-18: Mercuryo/NOWPayments fiat, Alchemy Pay, Wert and Dodo exclude Libya; BitPay/CoinGate do not accept cards for merchant invoices.** Details: [§10](PAYMENTS.md).
 2. Confirm a real card→crypto settlement path and its fees. Only candidate found: Malum — Libya eligibility unverified, TCO ~7–10%, MD5 webhook signature. Not adopted.
 3. Legal/tax treatment of receiving USDC in Libya (central bank / local counsel) — still open.
-4. Cloudflare production IDs, D1 remote schema, Worker/Pages deploy, five domains and Worker SEO routes — still pending. No real funds accepted yet.
+4. ~~Cloudflare production IDs + D1 remote schema + Worker deploy.~~ KV `3796c6a663b94fbda67f3069c6c0fb69`, D1 `a6e8367d-1521-474d-9eb4-a84691820958`, schema applied (13 queries/8 tables), Worker live at `https://solutions-ai-worker.safealigoog.workers.dev`, all auth/pay/SEO routes smoke-tested 2026-11-19. **Still pending:** Pages deploy, `VITE_WORKER_URL`, five domain attachments and Worker SEO routes. No real funds accepted yet.
 
 MiCA's transition period ended **1 Jul 2026** (already past as of Nov 2026), so an EEA-facing provider must be a licensed CASP today — no grandfathering.
 
@@ -49,6 +49,6 @@ Do not publish card processor names or card prices in-app until 1–2 are verifi
 
 1. ~~Choose auth backend → add signup/login and per-user quota keys.~~ Done.
 2. Add guest gating after a simple chat, with signup / BYOK / upgrade prompts.
-3. ~~Direct USDC/Polygon checkout → credits.~~ Done locally; production deploy pending.
+3. ~~Direct USDC/Polygon checkout → credits.~~ Done locally; Worker deployed and production routes smoke-tested. Frontend Pages deploy/domains pending.
 4. Verify a card processor with crypto settlement → add the card rail later.
 5. Keep the free guest lane and BYOK path intact throughout.

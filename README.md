@@ -79,25 +79,44 @@ npm run seo:generate  # regenerate public/robots.txt, sitemap.xml and per-domain
 
 ## Deploy
 
-### 1. Create the KV namespace
+### 1. Cloudflare resources (already created)
+
+Account `a9509f6a5546f386be2fd780ba517efb` (`safealigoog@gmail.com`) holds:
+
+| Resource | Name | ID |
+| --- | --- | --- |
+| KV namespace | `SOLUTIONS_QUOTA` | `3796c6a663b94fbda67f3069c6c0fb69` |
+| D1 database | `solutions_auth` (WEUR) | `a6e8367d-1521-474d-9eb4-a84691820958` |
+
+Both IDs are committed in `worker/wrangler.jsonc`. The KV **binding** stays `QUOTA` (code uses `env.QUOTA`); the D1 binding is `DB`. To recreate them from scratch:
 
 ```bash
 npx wrangler kv namespace create SOLUTIONS_QUOTA --config worker/wrangler.jsonc
+npx wrangler d1 create solutions_auth --config worker/wrangler.jsonc
 ```
-
-Copy the returned `id` into `worker/wrangler.jsonc` under `kv_namespaces[0].id` (currently the `REPLACE_WITH_YOUR_KV_NAMESPACE_ID` placeholder).
 
 ### 2. Deploy the Worker
 
+The remote schema is applied and the Worker is **deployed** at:
+
+```
+https://solutions-ai-worker.safealigoog.workers.dev
+```
+
+Current version ID: `019cb0af-1dcb-4225-9281-8f60db5f52f2`. Cron `*/3 * * * *` is active.
+
 ```bash
+npx wrangler d1 execute solutions_auth --remote --config worker/wrangler.jsonc --file=worker/schema.sql
 npm run deploy:worker
 ```
 
 Set `VITE_WORKER_URL` to the deployed Worker origin before building the frontend:
 
 ```bash
-VITE_WORKER_URL=https://solutions-ai-worker.<subdomain>.workers.dev npm run build
+VITE_WORKER_URL=https://solutions-ai-worker.safealigoog.workers.dev npm run build
 ```
+
+**Production smoke test (2026-11-19, all passing):** `GET /pay/plans` → 200; `POST /auth/register` → 201; `GET /auth/me` with/without token → 200/401; wrong-password login → 401; `POST /auth/login` → 200; `GET /account/plan` → 200; `POST /pay/invoice` → 201; `GET /pay/status` → 200 (`pending`); `POST /auth/logout` → 200; `GET /auth/me` after logout → 401; `GET /robots.txt` and `GET /sitemap.xml` → 200 with host-aware content. Test accounts were removed; production D1 is empty. No real funds have been received.
 
 ### 3. Route SEO files to the Worker
 
@@ -126,24 +145,24 @@ Schema: `worker/schema.sql` (`users`, `sessions`, `user_quotas`, plus payment ta
 ```bash
 cd C:\com.net.ly\solutions
 
-# 1. Create the D1 database (copy the returned database_id into worker/wrangler.jsonc)
+# 1. Recreate the D1 database only if it was deleted (ID already in wrangler.jsonc)
 npx wrangler d1 create solutions_auth --config worker/wrangler.jsonc
 
 # 2. Apply the schema locally (for `wrangler dev`)
 npx wrangler d1 execute solutions_auth --local --config worker/wrangler.jsonc --file=worker/schema.sql
 
-# 3. Apply the schema to production
+# 3. Apply the schema to production (already done — 13 queries / 8 tables)
 npx wrangler d1 execute solutions_auth --remote --config worker/wrangler.jsonc --file=worker/schema.sql
 
-# 4. Deploy the Worker with the D1 binding
+# 4. Deploy the Worker with the D1 binding (already deployed)
 npm run deploy:worker
 ```
 
-Replace `REPLACE_WITH_YOUR_D1_DATABASE_ID` in `worker/wrangler.jsonc` after step 1 (and `REPLACE_WITH_YOUR_KV_NAMESPACE_ID` for the quota KV).
+No placeholders remain in `worker/wrangler.jsonc`: KV `3796c6a663b94fbda67f3069c6c0fb69`, D1 `a6e8367d-1521-474d-9eb4-a84691820958`.
 
 ### USDC/Polygon checkout setup
 
-The Worker config already contains the receiving wallet, native USDC contract, RPC list, `64` confirmations, and a `*/3 * * * *` cron trigger. Production checks:
+The Worker config already contains the receiving wallet, native USDC contract, RPC list, `64` confirmations, and a `*/3 * * * *` cron trigger. The production Worker is deployed and `/pay/plans` + `/pay/invoice` + `/pay/status` + `/account/plan` were verified on 2026-11-19; no real on-chain payment has been received yet. Production checks:
 
 ```bash
 # Optional: enable the guarded manual rescan endpoint (POST /pay/scan)
