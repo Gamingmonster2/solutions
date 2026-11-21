@@ -59,6 +59,16 @@ export const TOOLS = [
     },
     icon: 'BookOpen',
   },
+  {
+    id: 'articles',
+    label: { en: 'Articles', ar: 'المقالات' },
+    tagline: { en: 'Ideas & insights', ar: 'أفكار ورؤى' },
+    description: {
+      en: 'Short reads about models, privacy, credits and the workspace.',
+      ar: 'قراءات قصيرة عن النماذج والخصوصية والاعتمادات ومساحة العمل.',
+    },
+    icon: 'Newspaper',
+  },
 ]
 
 export const TOOL_BY_ID = Object.fromEntries(TOOLS.map((tool) => [tool.id, tool]))

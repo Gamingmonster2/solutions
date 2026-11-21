@@ -39,6 +39,7 @@ export const SEO_PAGES = [
   { path: '/code', tool: 'code', title: 'Code Generator', description: 'Enhance your idea, generate code, preview it live, copy and edit it.' },
   { path: '/bot', tool: 'bot', title: 'AI Website Builder', description: 'Build responsive websites from a prompt with image injection and live preview.' },
   { path: '/guide', tool: 'guide', title: 'Models & Fair Use', description: 'Understand the free lane, BYOK keys, quotas and fair-use rules.' },
+  { path: '/articles', tool: 'articles', title: 'Articles & Insights', description: 'Read bilingual articles about AI models, privacy, credits, code generation and website building.' },
   { path: '/plans', tool: 'guide', title: 'Free Plan & BYOK', description: 'Compare the shared free pool with bring-your-own-key plans.' },
   { path: '/providers', tool: 'guide', title: 'AI Provider Policies', description: 'How Cloudflare, Groq, OpenRouter and other providers handle prompts and training.' },
   { path: '/privacy', tool: 'guide', title: 'Privacy', description: 'Keys stay in your browser; shared requests run without data training.' },

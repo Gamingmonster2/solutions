@@ -43,6 +43,13 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://solutions.com.ly/articles</loc>
+    <title>Articles &amp; Insights | Solutions</title>
+    <description>Read bilingual articles about AI models, privacy, credits, code generation and website building.</description>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://solutions.com.ly/plans</loc>
     <title>Free Plan &amp; BYOK | Solutions</title>
     <description>Compare the shared free pool with bring-your-own-key plans.</description>

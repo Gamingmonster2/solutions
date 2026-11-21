@@ -20,7 +20,7 @@
     }
   ],
   "vars": {
-    "ALLOWED_ORIGINS": "solutions.com.ly,chat.com.ly,browser.com.ly,com.net.ly,bot.com.ly",
+    "ALLOWED_ORIGINS": "solutions.com.ly,chat.com.ly,browser.com.ly,com.net.ly,bot.com.ly,solutions-ai.pages.dev,http://localhost:5173,http://localhost:4173",
     "PAY_RECEIVE_ADDRESS": "0xc6240d79d9341d6e585ca1ddb9b121c8c8a130d4",
     "POLYGON_RPC_URL": "https://polygon-bor-rpc.publicnode.com,https://polygon-rpc.com",
     "PAY_CONFIRMATIONS": "64",

@@ -178,7 +178,7 @@ Receiving address: `0xc6240d79d9341d6e585ca1ddb9b121c8c8a130d4` (EVM/Polygon, fr
 
 ## SEO
 
-`src/config/seo.js` is the single source of truth for 11 public routes per domain (`/`, `/chat`, `/browser`, `/code`, `/bot`, `/guide`, `/plans`, `/providers`, `/privacy`, `/faq`, `/about` = **55 indexable URLs** across 5 domains). `App.jsx` updates canonical, meta, OG, hreflang and JSON-LD from it per host and path. See [docs/SEO.md](docs/SEO.md).
+`src/config/seo.js` is the single source of truth for 12 public routes per domain (`/`, `/chat`, `/browser`, `/code`, `/bot`, `/guide`, `/articles`, `/plans`, `/providers`, `/privacy`, `/faq`, `/about` = **60 indexable URLs** across 5 domains). `App.jsx` updates canonical, meta, OG, hreflang and JSON-LD from it per host and path. See [docs/SEO.md](docs/SEO.md).
 
 ## Model registry
 

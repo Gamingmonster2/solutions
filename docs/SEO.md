@@ -9,7 +9,7 @@ Each of the five domains must appear independently in Google with its own sitema
 `src/config/seo.js` defines:
 
 - `DOMAINS` — label, default tool and description for each host.
-- `SEO_PAGES` — 11 public routes: `/`, `/chat`, `/browser`, `/code`, `/bot`, `/guide`, `/plans`, `/providers`, `/privacy`, `/faq`, `/about`.
+- `SEO_PAGES` — 12 public routes: `/`, `/chat`, `/browser`, `/code`, `/bot`, `/guide`, `/articles`, `/plans`, `/providers`, `/privacy`, `/faq`, `/about`.
 - `seoMeta()` — host-aware title, description, canonical URL and application name.
 - `sitemapXml()` / `robotsTxt()` — per-host XML and text output.
 
@@ -32,7 +32,7 @@ Because the build is one SPA, `public/_redirects` (`/* /index.html 200`) keeps p
 ```
 public/robots.txt          # lists all five sitemaps
 public/sitemap.xml         # sitemap index of the five per-domain sitemaps
-public/sitemaps/*.xml      # one 11-URL urlset per domain
+public/sitemaps/*.xml      # one 12-URL urlset per domain
 public/_redirects
 ```
 

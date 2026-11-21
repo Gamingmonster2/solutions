@@ -15,6 +15,7 @@ const CodeTool = lazy(() => import('@/tools/CodeTool.jsx').then((module) => ({ d
 const BotTool = lazy(() => import('@/tools/BotTool.jsx').then((module) => ({ default: module.BotTool })))
 const SettingsTool = lazy(() => import('@/tools/SettingsTool.jsx').then((module) => ({ default: module.SettingsTool })))
 const GuideTool = lazy(() => import('@/tools/GuideTool.jsx').then((module) => ({ default: module.GuideTool })))
+const ArticlesTool = lazy(() => import('@/tools/ArticlesTool.jsx').then((module) => ({ default: module.ArticlesTool })))
 
 const TOOL_COMPONENTS = {
   solutions: SolutionsTool,
@@ -24,6 +25,7 @@ const TOOL_COMPONENTS = {
   bot: BotTool,
   settings: SettingsTool,
   guide: GuideTool,
+  articles: ArticlesTool,
 }
 
 function initialTool() {

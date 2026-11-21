@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {
   Bot, BookOpen, Code2, Globe2, Languages, LayoutGrid, MessageSquare,
-  Moon, Palette, Settings2, Sparkles, Sun, Zap,
+  Moon, Newspaper, Palette, Settings2, Sparkles, Sun, Zap,
 } from 'lucide-react'
 import { TOOLS } from '@/config/tools'
 import { useSettings } from '@/hooks/useSettings'
@@ -12,7 +12,7 @@ import { QuotaIndicator } from '@/components/layout/quota-indicator'
 import { AccountButton } from '@/components/layout/account-button'
 import { PlansDialog } from '@/components/layout/plans-dialog'
 
-const TOOL_ICONS = { LayoutGrid, MessageSquare, Globe2, Code2, Bot, BookOpen }
+const TOOL_ICONS = { LayoutGrid, MessageSquare, Globe2, Code2, Bot, BookOpen, Newspaper }
 
 export function SiteHeader({ activeTool, onToolChange }) {
   const { lang, theme, toggleLang, toggleTheme, t } = useSettings()
